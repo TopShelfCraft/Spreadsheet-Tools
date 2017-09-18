@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpoffice/phpexcel": "~1.8",
+        "ccampbell/chromephp": "~4.1"
+    }
+}
