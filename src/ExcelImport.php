@@ -2,7 +2,9 @@
 
 namespace topshelfcraft\excelimport;
 
+use Craft;
 use craft\base\Plugin;
+use Symfony\Component\Filesystem\Filesystem;
 use topshelfcraft\excelimport\models\SettingsModel;
 use topshelfcraft\excelimport\services\HelperService;
 
@@ -31,10 +33,23 @@ class ExcelImport extends Plugin
     /**
      * Create the settings model
      * @return SettingsModel
+     * @throws \Exception
      */
     protected function createSettingsModel() : SettingsModel
     {
-        return new SettingsModel();
+        // Create a settings model
+        $settingsModel = new SettingsModel();
+
+        // Set the storage path
+        $storagePath = Craft::$app->path->getStoragePath() . '/excel-import';
+        $settingsModel->xlsUploadPath = $storagePath;
+
+        // Make sure that directory exists
+        $fs = new Filesystem();
+        $fs->mkdir($storagePath);
+
+        // Return the settings model
+        return $settingsModel;
     }
 
     /**
@@ -43,6 +58,7 @@ class ExcelImport extends Plugin
      */
     public function getHelperService() : HelperService
     {
+        // Return service with dependencies injected
         return new HelperService([
             'settings' => $this->settings,
         ]);
