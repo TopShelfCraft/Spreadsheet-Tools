@@ -3,10 +3,12 @@
 namespace topshelfcraft\excelimport;
 
 use craft\base\Plugin;
+use topshelfcraft\excelimport\models\SettingsModel;
 use topshelfcraft\excelimport\services\HelperService;
 
 /**
  * Class ExcelImport
+ * @property SettingsModel $settings
  * @property HelperService $helperService
  */
 class ExcelImport extends Plugin
@@ -27,11 +29,22 @@ class ExcelImport extends Plugin
     }
 
     /**
+     * Create the settings model
+     * @return SettingsModel
+     */
+    protected function createSettingsModel() : SettingsModel
+    {
+        return new SettingsModel();
+    }
+
+    /**
      * Get the helper service
      * @return HelperService
      */
     public function getHelperService() : HelperService
     {
-        return new HelperService();
+        return new HelperService([
+            'settings' => $this->settings,
+        ]);
     }
 }
