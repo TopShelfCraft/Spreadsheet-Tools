@@ -2,11 +2,15 @@
 
 namespace topshelfcraft\excelimport\services;
 
+use Symfony\Component\Filesystem\Filesystem;
 use topshelfcraft\excelimport\models\SettingsModel;
 
 /**
  * Class HelperService
  * @property array $validImportTypes
+ * @property array $validImportTypeKeys
+ * @property array $validSpreadsheetMimes
+ * @property string $spreadsheetUploadPath
  */
 class HelperService extends BaseService
 {
@@ -43,11 +47,11 @@ class HelperService extends BaseService
 
     /**
      * Get the spreadsheet mime types from the config.
-     * @return mixed
+     * @return array
      */
-    public function getValidSpreadsheetMimes()
+    public function getValidSpreadsheetMimes() : array
     {
-        return craft()->config->get('validUploadMimes', 'excelimporter');
+        return (array) $this->settings->validUploadMimes;
     }
 
     /**
@@ -67,7 +71,10 @@ class HelperService extends BaseService
      */
     public function getSpreadsheetUploadPath($filename = '')
     {
-        return craft()->config->get('xlsUploadPath', 'excelimporter') . trim($filename, '/');
+        return '/' .
+            trim($this->settings->xlsUploadPath, '/') .
+            '/' .
+            trim($filename, '/');
     }
 
     /**
@@ -77,7 +84,8 @@ class HelperService extends BaseService
      */
     public function doesSpreadsheetExist($filename = '') : bool
     {
-        return ! empty($filename) ||
-            ! IOHelper::fileExists($this->getSpreadsheetUploadPath($filename));
+        return (new Filesystem())->exists(
+            $this->getSpreadsheetUploadPath($filename)
+        );
     }
 }
