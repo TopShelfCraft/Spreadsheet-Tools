@@ -68,19 +68,25 @@ class HelperService extends BaseService
      * Get the spreadsheet upload path.
      * @param string $filename
      * @return mixed
+     * @throws \Exception
      */
     public function getSpreadsheetUploadPath($filename = '')
     {
-        return '/' .
-            trim($this->settings->xlsUploadPath, '/') .
-            '/' .
-            trim($filename, '/');
+        // Normalize the path
+        $path = '/' . trim($this->settings->xlsUploadPath, '/') . '/';
+
+        // Make sure that directory exists
+        (new Filesystem())->mkdir($path);
+
+        // Return the path anf filename put together
+        return $path . trim($filename, '/');
     }
 
     /**
      * Check if the spreadsheet exists.
      * @param string $filename
      * @return bool
+     * @throws \Exception
      */
     public function doesSpreadsheetExist($filename = '') : bool
     {

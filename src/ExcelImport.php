@@ -44,10 +44,6 @@ class ExcelImport extends Plugin
         $storagePath = Craft::$app->path->getStoragePath() . '/excel-import';
         $settingsModel->xlsUploadPath = $storagePath;
 
-        // Make sure that directory exists
-        $fs = new Filesystem();
-        $fs->mkdir($storagePath);
-
         // Return the settings model
         return $settingsModel;
     }
