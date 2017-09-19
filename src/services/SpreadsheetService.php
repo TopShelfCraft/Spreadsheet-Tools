@@ -11,7 +11,7 @@ class SpreadsheetService extends BaseService
 {
     /**
      * Parse file
-     * @param $file
+     * @param string $file
      * @return array
      * @throws \Exception
      */
@@ -30,5 +30,22 @@ class SpreadsheetService extends BaseService
 
         // Return the sheet data as an array
         return $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+    }
+
+    /**
+     * Walk rows
+     * @param string $file
+     * @param callable $callable
+     * @param mixed $userData
+     * @return bool
+     * @throws \Exception
+     */
+    public function walkRows(
+        string $file,
+        callable $callable,
+        $userData = null
+    ) : bool {
+        $array = $this->parseFile($file);
+        return array_walk($array, $callable, $userData);
     }
 }
