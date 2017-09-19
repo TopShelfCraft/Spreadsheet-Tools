@@ -31,7 +31,9 @@
         "craftcms/cms": "^3.0.0-beta.28",
         "vlucas/phpdotenv": "^2.4.0",
         "roave/security-advisories": "dev-master",
-        "symfony/filesystem": "^2.7 || ^3.0"
+        "symfony/filesystem": "^2.7 || ^3.0",
+        "phpoffice/phpexcel": "~1.8",
+        "ccampbell/chromephp": "~4.1"
     },
     "autoload": {
         "psr-4": {
