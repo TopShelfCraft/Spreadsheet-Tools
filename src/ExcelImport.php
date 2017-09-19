@@ -4,10 +4,10 @@ namespace topshelfcraft\excelimport;
 
 use Craft;
 use craft\base\Plugin;
-use Symfony\Component\Filesystem\Filesystem;
 use topshelfcraft\excelimport\models\SettingsModel;
 use topshelfcraft\excelimport\services\HelperService;
 use topshelfcraft\excelimport\services\SpreadsheetService;
+use craft\console\Application as ConsoleApplication;
 
 /**
  * Class ExcelImport
@@ -30,6 +30,11 @@ class ExcelImport extends Plugin
 
         // Save an instance of this plugin for easy reference throughout app
         self::$plugin = $this;
+
+        // Add in our console commands
+        if (Craft::$app instanceof ConsoleApplication) {
+            $this->controllerNamespace = 'topshelfcraft\excelimport\console\controllers';
+        }
     }
 
     /**
