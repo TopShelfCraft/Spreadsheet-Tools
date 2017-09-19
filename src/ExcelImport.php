@@ -13,6 +13,7 @@ use topshelfcraft\excelimport\services\SpreadsheetService;
  * Class ExcelImport
  * @property SettingsModel $settings
  * @property HelperService $helperService
+ * @property SpreadsheetService $spreadsheetService
  */
 class ExcelImport extends Plugin
 {
