@@ -2,21 +2,24 @@
 
 namespace topshelfcraft\excelimport\services;
 
-use craft\base\Component;
+use topshelfcraft\excelimport\models\SettingsModel;
 
 /**
  * Class HelperService
  * @property array $validImportTypes
  */
-class HelperService extends Component
+class HelperService extends BaseService
 {
+    /** @var SettingsModel $settings */
+    protected $settings;
+
     /**
      * Get the valid import types from the config
      * @return array
      */
     public function getValidImportTypes() : array
     {
-        return (array) craft()->config->get('validImportTypes', 'excelimporter');
+        return (array) $this->settings->validImportTypes;
     }
 
     /**
