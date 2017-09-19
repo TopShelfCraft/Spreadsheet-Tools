@@ -7,6 +7,7 @@ use craft\base\Plugin;
 use Symfony\Component\Filesystem\Filesystem;
 use topshelfcraft\excelimport\models\SettingsModel;
 use topshelfcraft\excelimport\services\HelperService;
+use topshelfcraft\excelimport\services\SpreadsheetService;
 
 /**
  * Class ExcelImport
@@ -58,5 +59,14 @@ class ExcelImport extends Plugin
         return new HelperService([
             'settings' => $this->settings,
         ]);
+    }
+
+    /**
+     * Get spreadsheet service
+     * @return SpreadsheetService
+     */
+    public function getSpreadsheetService() : SpreadsheetService
+    {
+        return new SpreadsheetService();
     }
 }
