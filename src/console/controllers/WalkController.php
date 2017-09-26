@@ -37,12 +37,12 @@ class WalkController extends Controller
         }
 
         if ($this->class === null) {
-            $this->writeErr('--class=\\\\my\\\\custom\\\\class is required.');
+            $this->writeErr('--class=my.custom.class is required.');
             $errors = true;
         }
 
         if ($this->method === null) {
-            $this->writeErr('--class=myMethod is required.');
+            $this->writeErr('--method=myMethod is required.');
             $errors = true;
         }
 
@@ -62,8 +62,10 @@ class WalkController extends Controller
         // Get our class
         $class = null;
 
-        if (class_exists($this->class)) {
-            $class = $this->class;
+        $qualifiedClass = '\\' . str_replace('.', '\\', $this->class);
+
+        if (class_exists($qualifiedClass)) {
+            $class = $qualifiedClass;
             $class = new $class;
         }
 
