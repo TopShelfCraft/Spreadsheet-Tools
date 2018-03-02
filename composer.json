@@ -1,53 +1,67 @@
 {
-    "name": "topshelfcraft/excelimport",
-    "description": "Import from Excel files",
-    "type": "craft-plugin",
-    "version": "0.0.2",
-    "keywords": [
-        "craft",
-        "cms",
-        "craftcms",
-        "craft-plugin",
-        "Excel Import"
-    ],
-    "authors": [
-        {
-            "name": "Aaron Waldon",
-            "homepage": "https://www.causingeffect.com"
-        },
-        {
-            "name": "TJ Draper",
-            "homepage": "https://buzzingpixel.com"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
-    "require": {
-        "php": ">=7.0.0",
-        "craftcms/cms": "^3.0.0-beta.28",
-        "vlucas/phpdotenv": "^2.4.0",
-        "roave/security-advisories": "dev-master",
-        "symfony/filesystem": "^2.7 || ^3.0",
-        "phpoffice/phpexcel": "~1.8",
-        "ccampbell/chromephp": "~4.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "topshelfcraft\\excelimport\\": "src/"
-        }
-    },
-    "extra": {
-        "name": "Excel Import",
-        "handle": "excel-import",
-        "developer": "Top Shelf Craft",
-        "developerUrl": "https://topshelfcraft.com",
-        "schemaVersion": "0.0.0.0",
-        "hasCpSettings": false,
-        "hasCpSection": false,
-        "class": "topshelfcraft\\excelimport\\ExcelImport"
-    }
+	"name": "topshelfcraft/excel-importer",
+	"description": "Because sometimes the best you can do is a spreadsheet.",
+	"type": "craft-plugin",
+	"version": "3.0.0-alpha.1",
+	"keywords": [
+		"craft",
+		"cms",
+		"craftcms",
+		"craft-plugin",
+		"Excel Import",
+		"spreadsheet",
+		"import",
+		"excel",
+		"XLS",
+		"CSV"
+	],
+	"support": {
+		"docs": "https://raw.githubusercontent.com/TopShelfCraft/Excel-Importer",
+		"issues": "https://github.com/TopShelfCraft/Excel-Importer/issues"
+	},
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Top Shelf Craft (Michael Rog)",
+			"homepage": "https://topshelfcraft.com"
+		},
+		{
+			"name": "Aaron Waldon",
+			"homepage": "https://www.causingeffect.com"
+		},
+		{
+			"name": "TJ Draper",
+			"homepage": "https://buzzingpixel.com"
+		}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	],
+	"require": {
+		"php": ">=7.0.0",
+		"craftcms/cms": "^3.0.0-RC13",
+		"symfony/filesystem": "^2.7 || ^3.0",
+		"phpoffice/phpexcel": "~1.8"
+	},
+	"autoload": {
+		"psr-4": {
+			"topshelfcraft\\excelimporter\\": "src/"
+		}
+	},
+	"extra": {
+		"name": "Excel Importer",
+		"handle": "excel-importer",
+		"schemaVersion": "0.0.0.0",
+		"hasCpSettings": false,
+		"hasCpSection": false,
+		"changelogUrl": "https://raw.githubusercontent.com/TopShelfCraft/Excel-Importer/master/CHANGELOG.md",
+		"class": "topshelfcraft\\excelimporter\\ExcelImporter",
+		"components": {
+			"helpers": "topshelfcraft\\excelimporter\\services\\HelperService",
+			"spreadsheet": "topshelfcraft\\excelimporter\\services\\SpreadsheetService"
+		}
+	}
 }

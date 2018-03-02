@@ -1,6 +1,5 @@
 <?php
-
-namespace topshelfcraft\excelimport\models;
+namespace topshelfcraft\excelimporter\models;
 
 use craft\base\Model;
 
@@ -9,15 +8,23 @@ use craft\base\Model;
  */
 class SettingsModel extends Model
 {
-    /** @var array $validImportTypes */
-    public $validImportTypes = [];
 
-    /** @var array $validImportTypes */
-    public $validUploadMimes = [
-        'application/vnd.ms-excel',
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    ];
+	/**
+	 * @var array $validImportTypes
+	 */
+	public $validImportTypes = [];
 
-    /** @var string $xlsUploadPath */
-    public $xlsUploadPath = '';
+	/**
+	 * @var array $validImportTypes
+	 */
+	public $validUploadMimes = [
+		'application/vnd.ms-excel',
+		'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+	];
+
+	/**
+	 * @var string $xlsUploadPath
+	 */
+	public $xlsUploadPath = '';
+
 }
