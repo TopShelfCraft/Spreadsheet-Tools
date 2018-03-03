@@ -1,9 +1,9 @@
 <?php
-namespace topshelfcraft\excelimporter\services;
+namespace topshelfcraft\spreadsheet\services;
 
 use Symfony\Component\Filesystem\Filesystem;
-use topshelfcraft\excelimporter\ExcelImporter;
-use topshelfcraft\excelimporter\models\SettingsModel;
+use topshelfcraft\spreadsheet\Spreadsheet;
+use topshelfcraft\spreadsheet\models\SettingsModel;
 
 /**
  * @property array $validImportTypes
@@ -25,7 +25,7 @@ class HelperService extends BaseService
 	public function init()
 	{
 		parent::init([
-			'settings' => ExcelImporter::$plugin->getSettings()
+			'settings' => Spreadsheet::$plugin->getSettings()
 		]);
 	}
 

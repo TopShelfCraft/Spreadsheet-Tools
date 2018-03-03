@@ -1,6 +1,6 @@
 {
-	"name": "topshelfcraft/excel-importer",
-	"description": "Because sometimes the best you can do is a spreadsheet.",
+	"name": "topshelfcraft/spreadsheet",
+	"description": "A toolkit for reading, writing, and processing spreadsheet data in Craft CMS.",
 	"type": "craft-plugin",
 	"version": "3.0.0-alpha.1",
 	"keywords": [
@@ -8,7 +8,8 @@
 		"cms",
 		"craftcms",
 		"craft-plugin",
-		"Excel Import",
+		"excel-importer",
+		"Excel Importer",
 		"spreadsheet",
 		"import",
 		"excel",
@@ -16,8 +17,8 @@
 		"CSV"
 	],
 	"support": {
-		"docs": "https://raw.githubusercontent.com/TopShelfCraft/Excel-Importer",
-		"issues": "https://github.com/TopShelfCraft/Excel-Importer/issues"
+		"docs": "https://raw.githubusercontent.com/TopShelfCraft/Spreadsheet",
+		"issues": "https://github.com/TopShelfCraft/Spreadsheet/issues"
 	},
 	"license": "proprietary",
 	"authors": [
@@ -48,20 +49,20 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"topshelfcraft\\excelimporter\\": "src/"
+			"topshelfcraft\\spreadsheet\\": "src/"
 		}
 	},
 	"extra": {
-		"name": "Excel Importer",
-		"handle": "excel-importer",
+		"name": "Spreadsheet",
+		"handle": "spreadsheet",
 		"schemaVersion": "0.0.0.0",
 		"hasCpSettings": false,
 		"hasCpSection": false,
-		"changelogUrl": "https://raw.githubusercontent.com/TopShelfCraft/Excel-Importer/master/CHANGELOG.md",
-		"class": "topshelfcraft\\excelimporter\\ExcelImporter",
+		"changelogUrl": "https://raw.githubusercontent.com/TopShelfCraft/Spreadsheet/master/CHANGELOG.md",
+		"class": "topshelfcraft\\spreadsheet\\Spreadsheet",
 		"components": {
-			"helpers": "topshelfcraft\\excelimporter\\services\\HelperService",
-			"spreadsheet": "topshelfcraft\\excelimporter\\services\\SpreadsheetService"
+			"helpers": "topshelfcraft\\spreadsheet\\services\\HelperService",
+			"spreadsheet": "topshelfcraft\\spreadsheet\\services\\SpreadsheetService"
 		}
 	}
 }

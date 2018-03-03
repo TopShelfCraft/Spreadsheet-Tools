@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\excelimporter\models;
+namespace topshelfcraft\spreadsheet\models;
 
 use craft\base\Model;
 

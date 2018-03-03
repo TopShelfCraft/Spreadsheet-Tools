@@ -1,8 +1,8 @@
 <?php
-namespace topshelfcraft\excelimporter\console\controllers;
+namespace topshelfcraft\spreadsheet\console\controllers;
 
 use Symfony\Component\Filesystem\Filesystem;
-use topshelfcraft\excelimporter\ExcelImporter;
+use topshelfcraft\spreadsheet\Spreadsheet;
 use yii\console\Controller;
 use yii\helpers\Console;
 
@@ -87,7 +87,7 @@ class WalkController extends Controller
 			return;
 		}
 
-		if (!ExcelImporter::$plugin->spreadsheetService->walkRows(
+		if (!Spreadsheet::$plugin->spreadsheetService->walkRows(
 			$this->file,
 			[
 				$class,

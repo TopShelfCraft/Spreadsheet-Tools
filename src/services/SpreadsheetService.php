@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\excelimporter\services;
+namespace topshelfcraft\spreadsheet\services;
 
 use PHPExcel_IOFactory;
 
