@@ -10,6 +10,8 @@ use topshelfcraft\spreadsheet\services\SpreadsheetService;
 use craft\console\Application as ConsoleApplication;
 
 /**
+ * Toolkit for reading, writing, and processing spreadsheet data
+ *
  * @property SettingsModel $settings
  * @property HelperService $helper
  * @property SpreadsheetService $spreadsheet
@@ -34,14 +36,9 @@ class Spreadsheet extends Plugin
 
 		if (Craft::$app instanceof ConsoleApplication)
 		{
-//			Craft::$app->controllerNamespace = 'topshelfcraft\\excelimporter\\console\\controllers';
-			Craft::$app->controllerMap['excel'] = WalkController::class;
+//			$this->controllerNamespace = 'topshelfcraft\\spreadsheet\\console\\controllers';
+			Craft::$app->controllerMap['spreadsheet'] = WalkController::class;
 		}
-
-//		// Handle any console commands
-//		if (Craft::$app instanceof ConsoleApplication) {
-//			$this->controllerNamespace = 'topshelfcraft\\excelimporter\\console\\controllers';
-//		}
 
 	}
 
@@ -56,7 +53,7 @@ class Spreadsheet extends Plugin
 
 		$settingsModel = new SettingsModel();
 
-		$storagePath = Craft::$app->path->getStoragePath() . '/excel-importer';
+		$storagePath = Craft::$app->path->getStoragePath() . '/spreadsheet';
 		$settingsModel->xlsUploadPath = $storagePath;
 
 		return $settingsModel;

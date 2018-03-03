@@ -15,7 +15,7 @@ The _Excel Importer_ plugin provides tools for parsing spreadsheet data and walk
 ## Installation
 
 ```
-composer require topshelfcraft/excel-importer
+composer require topshelfcraft/spreadsheet
 ```
 
 
