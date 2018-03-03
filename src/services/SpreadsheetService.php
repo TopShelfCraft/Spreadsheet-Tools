@@ -1,7 +1,7 @@
 <?php
 namespace topshelfcraft\spreadsheet\services;
 
-use PHPExcel_IOFactory;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class SpreadsheetService extends BaseService
 {
@@ -14,22 +14,15 @@ class SpreadsheetService extends BaseService
 	 * @return array
 	 * @throws \Exception
 	 */
-	public function parseFile($file): array
+	public function getRows(string $file, $readDataOnly = true): array
 	{
 
-		// Create a new Reader of the type that has been identified
-		$objReader = PHPExcel_IOFactory::createReader(
-			PHPExcel_IOFactory::identify($file)
-		);
-
-		// Advise the Reader that we only want to load cell data
-		$objReader->setReadDataOnly(true);
-
-		// Load $inputFileName to a PHPExcel Object
-		$objPHPExcel = $objReader->load($file);
+		$reader = IOFactory::createReaderForFile($file);
+		$reader->setReadDataOnly($readDataOnly);
+		$spreadsheet = $reader->load($file);
 
 		// Return the sheet data as an array
-		return $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+		return $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 
 	}
 
@@ -45,7 +38,7 @@ class SpreadsheetService extends BaseService
 	 */
 	public function walkRows(string $file, callable $callable, $userData = null): bool
 	{
-		$array = $this->parseFile($file);
+		$array = $this->getRows($file);
 		return array_walk($array, $callable, $userData);
 	}
 

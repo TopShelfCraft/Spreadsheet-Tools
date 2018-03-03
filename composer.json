@@ -2,7 +2,7 @@
 	"name": "topshelfcraft/spreadsheet",
 	"description": "A toolkit for reading, writing, and processing spreadsheet data in Craft CMS.",
 	"type": "craft-plugin",
-	"version": "3.0.0-alpha.1",
+	"version": "3.0.0-alpha.2",
 	"keywords": [
 		"craft",
 		"cms",
@@ -45,7 +45,7 @@
 		"php": ">=7.0.0",
 		"craftcms/cms": "^3.0.0-RC13",
 		"symfony/filesystem": "^2.7 || ^3.0",
-		"phpoffice/phpexcel": "~1.8"
+		"phpoffice/phpspreadsheet": "^1.1"
 	},
 	"autoload": {
 		"psr-4": {
