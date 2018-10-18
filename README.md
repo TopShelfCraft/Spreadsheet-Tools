@@ -1,4 +1,4 @@
-# Excel Importer
+# Spreadsheet Tools
 
 _Because sometimes the best you can do is a spreadsheet._
 
@@ -7,7 +7,7 @@ _Because sometimes the best you can do is a spreadsheet._
 
 ### TL;DR.
 
-The _Excel Importer_ plugin provides tools for parsing spreadsheet data and walking that data through a method of your choice.
+The _Spreadsheet Tools_ plugin provides a toolkit for reading, writing, and processing spreadsheet data and walking that data through a method of your choice.
 
 * * *
 
@@ -15,7 +15,7 @@ The _Excel Importer_ plugin provides tools for parsing spreadsheet data and walk
 ## Installation
 
 ```
-composer require topshelfcraft/spreadsheet
+composer require topshelfcraft/spreadsheet-tools
 ```
 
 

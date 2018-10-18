@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\spreadsheet\services;
+namespace topshelfcraft\spreadsheettools\services;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
