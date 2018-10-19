@@ -22,7 +22,9 @@ class SpreadsheetService extends BaseService
 		$spreadsheet = $reader->load($file);
 
 		// Return the sheet data as an array
-		return $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+		$data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+		// TODO: Implement re-keying by header via SpreadsheetHelper:getDataKeyedByHeaderRow (?)
+		return $data;
 
 	}
 
