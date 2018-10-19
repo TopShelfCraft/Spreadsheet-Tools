@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\spreadsheet\demo;
+namespace topshelfcraft\spreadsheettools\demo;
 
 class Console
 {

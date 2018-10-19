@@ -1,12 +1,12 @@
 <?php
-namespace topshelfcraft\spreadsheet;
+namespace topshelfcraft\spreadsheettools;
 
 use Craft;
 use craft\base\Plugin;
-use topshelfcraft\spreadsheet\console\controllers\WalkController;
-use topshelfcraft\spreadsheet\models\SettingsModel;
-use topshelfcraft\spreadsheet\services\HelperService;
-use topshelfcraft\spreadsheet\services\SpreadsheetService;
+use topshelfcraft\spreadsheettools\console\controllers\WalkController;
+use topshelfcraft\spreadsheettools\models\SettingsModel;
+use topshelfcraft\spreadsheettools\services\HelperService;
+use topshelfcraft\spreadsheettools\services\SpreadsheetService;
 use craft\console\Application as ConsoleApplication;
 
 /**
@@ -16,11 +16,11 @@ use craft\console\Application as ConsoleApplication;
  * @property HelperService $helper
  * @property SpreadsheetService $spreadsheet
  */
-class Spreadsheet extends Plugin
+class SpreadsheetTools extends Plugin
 {
 
 	/**
-	 * @var Spreadsheet $plugin
+	 * @var SpreadsheetTools $plugin
 	 */
 	public static $plugin;
 
@@ -36,8 +36,8 @@ class Spreadsheet extends Plugin
 
 		if (Craft::$app instanceof ConsoleApplication)
 		{
-//			$this->controllerNamespace = 'topshelfcraft\\spreadsheet\\console\\controllers';
-			Craft::$app->controllerMap['spreadsheet'] = WalkController::class;
+//			$this->controllerNamespace = 'topshelfcraft\\spreadsheettools\\console\\controllers';
+			Craft::$app->controllerMap['spreadsheet-tools'] = WalkController::class;
 		}
 
 	}
@@ -53,7 +53,7 @@ class Spreadsheet extends Plugin
 
 		$settingsModel = new SettingsModel();
 
-		$storagePath = Craft::$app->path->getStoragePath() . '/spreadsheet';
+		$storagePath = Craft::$app->path->getStoragePath() . '/spreadsheet-tools';
 		$settingsModel->xlsUploadPath = $storagePath;
 
 		return $settingsModel;

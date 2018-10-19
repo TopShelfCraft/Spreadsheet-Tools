@@ -1,9 +1,9 @@
 <?php
-namespace topshelfcraft\spreadsheet\services;
+namespace topshelfcraft\spreadsheettools\services;
 
 use Symfony\Component\Filesystem\Filesystem;
-use topshelfcraft\spreadsheet\Spreadsheet;
-use topshelfcraft\spreadsheet\models\SettingsModel;
+use topshelfcraft\spreadsheettools\SpreadsheetTools;
+use topshelfcraft\spreadsheettools\models\SettingsModel;
 
 /**
  * @property array $validImportTypes
@@ -25,7 +25,7 @@ class HelperService extends BaseService
 	public function init()
 	{
 		parent::init([
-			'settings' => Spreadsheet::$plugin->getSettings()
+			'settings' => SpreadsheetTools::$plugin->getSettings()
 		]);
 	}
 

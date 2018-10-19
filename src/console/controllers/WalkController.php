@@ -1,15 +1,15 @@
 <?php
-namespace topshelfcraft\spreadsheet\console\controllers;
+namespace topshelfcraft\spreadsheettools\console\controllers;
 
 use Symfony\Component\Filesystem\Filesystem;
-use topshelfcraft\spreadsheet\Spreadsheet;
+use topshelfcraft\spreadsheettools\SpreadsheetTools;
 use yii\console\Controller;
 use yii\helpers\Console;
 
 /**
  * Read, write, and process spreadsheet data
  *
- * @package topshelfcraft\spreadsheet\console\controllers
+ * @package topshelfcraft\spreadsheettools\console\controllers
  */
 class WalkController extends Controller
 {
@@ -142,7 +142,7 @@ class WalkController extends Controller
 			return;
 		}
 
-		if (!Spreadsheet::$plugin->spreadsheet->walkRows($this->file, $callable))
+		if (!SpreadsheetTools::$plugin->spreadsheet->walkRows($this->file, $callable))
 		{
 			$this->_writeErr('An unknown error occurred while running the specified method.');
 			return;
