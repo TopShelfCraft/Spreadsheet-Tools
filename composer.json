@@ -44,7 +44,7 @@
 	],
 	"require": {
 		"php": ">=7.0.0",
-		"craftcms/cms": "^3.0.0-RC13",
+		"craftcms/cms": "^3.0.0",
 		"symfony/filesystem": "^2.7 || ^3.0",
 		"phpoffice/phpspreadsheet": "^1.1"
 	},
