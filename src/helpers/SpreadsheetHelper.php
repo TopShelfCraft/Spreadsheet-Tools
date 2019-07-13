@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\spreadsheet\helpers;
+namespace topshelfcraft\spreadsheettools\helpers;
 
 class SpreadsheetHelper
 {
